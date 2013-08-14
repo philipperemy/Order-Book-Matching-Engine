@@ -10,22 +10,6 @@ public class Main {
 		randomInt.initialize();
 	}
 
-	public static void f() {
-		OrderBookEngine engine = new OrderBookEngine();
-		engine.addBidOrder(9.9, 1000);
-		engine.addBidOrder(9.8, 3000);
-		engine.addBidOrder(9.7, 5000);
-
-		engine.addAskOffer(10.1, 3000);
-		engine.addAskOffer(10.2, 3000);
-		engine.addAskOffer(10.3, 10000);
-
-		engine.receiveOrder(10.5, 17000, true);
-		engine.receiveOrder(9.8, 60000, false);
-		engine.receiveOrder(9.8, 55000, true);
-		engine.receiveOrder(1, 5000, false);
-	}
-
 	public static void show() {
 
 		OrderBookEngine engine = new OrderBookEngine();
@@ -81,30 +65,18 @@ public class Main {
 
 		}
 
-		long n2 = System.currentTimeMillis();
-		// engine.printExecutedBook();
-		// engine.printOrderBook();
-		// System.out.println("executed orders : " +
-		// engine.getExecutedOrdersCount());
-		System.out.println((n2 - n1));
+		long elapsedTimeMillis = System.currentTimeMillis() - n1;
+		long elapsedTimeMicros = elapsedTimeMillis * 1000;
+		
+		System.out.println(((double)elapsedTimeMicros) / ITERATIONS + " us on average");
 		engine.reset();
 
 	}
-
+	/**
+	 * -Xmx4096m -Xms4096m -server -verbose:gc -XX:+PrintGCTimeStamps -XX:+PrintGCDetails -XX:+UseParNewGC -XX:+UseFastAccessorMethods
+	 */
 	public static void main(String[] args) throws InterruptedException {
 		g();
-	}
-
-	public static void f_perform() {
-		long count = 0;
-		long n1 = System.nanoTime();
-		for (int i = 0; i < 10000000; i++) {
-			f();
-		}
-		long n2 = System.nanoTime();
-		count = n2 - n1;
-		count /= 10000000;
-		System.out.println("count = " + count + " ns");
 	}
 
 }
