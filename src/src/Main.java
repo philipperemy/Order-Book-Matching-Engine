@@ -1,5 +1,9 @@
 package src;
 
+import src.OrderBookEngine;
+import src.RandomDouble;
+import src.RandomInt;
+
 public class Main {
 
 	static RandomDouble randomDouble = new RandomDouble();
@@ -7,7 +11,7 @@ public class Main {
 
 	static {
 		randomDouble.initialize();
-		randomInt.initialize();
+		randomInt.initialize( );
 	}
 
 	public static void show() {
