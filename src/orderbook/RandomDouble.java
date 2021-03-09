@@ -1,4 +1,4 @@
-package src;
+package orderbook;
 
 import java.text.DecimalFormat;
 
@@ -29,7 +29,7 @@ public class RandomDouble {
 	private double getRandom()
 	{
 		DecimalFormat twoDForm = new DecimalFormat("#.##"); 
-		return Double.valueOf(twoDForm.format(Math.random() * 100));
+		return Double.parseDouble(twoDForm.format(Math.random() * 100));
 	}
 	
 	public double nextDouble() {
