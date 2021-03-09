@@ -2,6 +2,8 @@
 
 Latency to match an order with a thick order book: *~1us*.
 
+No dependencies required (except Java).
+
 ### Example
 
 ```java
