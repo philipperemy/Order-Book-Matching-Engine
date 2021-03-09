@@ -42,6 +42,9 @@ public class OrderBookEngine {
                         removeAskOrder(ask_price, quantity);
                         quantity = 0;
                     }
+                    if (quantity == 0) {
+                        break;
+                    }
                 }
             }
             if (quantity > 0) {
@@ -59,6 +62,9 @@ public class OrderBookEngine {
                     } else {
                         removeBidOrder(bid_price, quantity);
                         quantity = 0;
+                    }
+                    if (quantity == 0) {
+                        break;
                     }
                 }
 
